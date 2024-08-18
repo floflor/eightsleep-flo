@@ -2,7 +2,7 @@ import { UserSleepStats } from "../../definitions/users";
 import { formatIsoDateToHM, secondsToHours } from "../date-utils";
 import dayjs from "../dayjs";
 
-const calculateSleepHoursByStage = (
+export const calculateSleepHoursByStage = (
   stages: SleepStage[],
   stageType: string
 ) => {
@@ -14,7 +14,7 @@ const calculateSleepHoursByStage = (
   return secondsToHours(sleepSeconds);
 };
 
-const calculateTotalSleepHours = (stages: SleepStage[]) => {
+export const calculateTotalSleepHours = (stages: SleepStage[]) => {
   const totalSleepSeconds = stages
     .filter((s) => s.stage !== "out" && s.stage !== "awake")
     .map((stage) => stage.duration)
@@ -23,23 +23,29 @@ const calculateTotalSleepHours = (stages: SleepStage[]) => {
   return secondsToHours(totalSleepSeconds);
 };
 
-const calculateLowestHeartRate = (timeSerie: [string, number][]) => {
+export const calculateLowestHeartRate = (timeSerie: [string, number][]) => {
   const heartRates = timeSerie.map(([, value]) => value);
   return Math.round(Math.min(...heartRates));
 };
 
-const calculateAverageRespiratoryRate = (timeSerie: [string, number][]) => {
+export const calculateAverageRespiratoryRate = (
+  timeSerie: [string, number][]
+) => {
   const respiratoryRates = timeSerie.map(([, value]) => value);
   const sum = respiratoryRates.reduce((total, rate) => total + rate, 0);
   return Math.round(sum / respiratoryRates.length);
 };
 
-const calculateSleepStagePercentages = (stages: SleepStage[]) => {
+export const calculateSleepStagePercentages = (stages: SleepStage[]) => {
   const totalDuration = stages.reduce((sum, stage) => sum + stage.duration, 0);
+  console.log(totalDuration);
+  
   const stageDurations: Record<"awake" | "light" | "deep" | "out", number> =
     stages.reduce(
       (result, stage) => {
-        result[stage.stage] = (result[stage.stage] || 0) + stage.duration;
+        if (stage.stage in result) {
+          result[stage.stage] += stage.duration;
+        }
         return result;
       },
       {
@@ -60,7 +66,8 @@ const calculateSleepStagePercentages = (stages: SleepStage[]) => {
   return percentages;
 };
 
-const calculateTimeInBed = (stages: SleepStage[]): number => {
+
+export const calculateTimeInBed = (stages: SleepStage[]): number => {
   const activeStages = ["awake", "light", "deep"];
   const seconds = stages
     .filter((stage) => activeStages.includes(stage.stage))
@@ -68,7 +75,7 @@ const calculateTimeInBed = (stages: SleepStage[]): number => {
   return secondsToHours(seconds);
 };
 
-const calculateWakeupTime = (interval: SleepInterval): string => {
+export const calculateWakeupTime = (interval: SleepInterval): string => {
   const totalSleepDuration = interval.stages.reduce(
     (sum, stage) => sum + stage.duration,
     0
@@ -81,7 +88,7 @@ const calculateWakeupTime = (interval: SleepInterval): string => {
   return wakeupTime.format("HH:mm");
 };
 
-const calculateTotalTNT = (timeSerie: [string, number][]) => {
+export const calculateTotalTNT = (timeSerie: [string, number][]) => {
   return timeSerie.reduce((total, [, value]) => total + value, 0);
 };
 

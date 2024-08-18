@@ -14,13 +14,13 @@ export default function Loader() {
   useGSAP(() => {
     gsap.to(textImageRef.current, {
       opacity: 0,
-      duration: 1.5,
+      duration: 2.5,
       ease: "ease-in-out",
     });
     gsap
       .to(imageRef.current, {
         opacity: 0,
-        duration: 1.5,
+        duration: 2.5,
         ease: "ease-in-out",
       })
       .eventCallback("onComplete", () => {
