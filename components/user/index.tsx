@@ -50,8 +50,6 @@ export default function User({ userData }: UserParams) {
     setSelectedDate(uniqueDates[0]);
   }
 
-  console.log(sleepDataFiltered);
-
   return (
     <>
       <div className="flex flex-col-reverse gap-y-5 mt-16 pl-5 pr-5 sm:pl-10 sm:pr-10 sm:flex-row sm:justify-between sm:items-center sm:mb-5">

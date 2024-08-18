@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Eight Sleep By Flo
 
-## Getting Started
+**Eight Sleep By Flo** is a web application designed to provide detailed sleep statistics, built with Next.js using App Router version 14.2.5.
 
-First, run the development server:
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- Day.js
+- GSAP
+- ECharts
+- Tailwind CSS
+
+## Installation
+
+To start the project, clone the repository and run the following commands:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/your_username/eightsleep-flo.git
+cd eightsleep-flo
+npm install
+``` 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+These are the available commands for development and testing:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the application for production.
+- `npm run start`: Starts the application in production mode.
+- `npm run lint`: Runs the linter to check for code issues.
+- `npm run test`: Runs unit tests.
+- `npm run test:watch`: Runs tests in watch mode.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- **`app`**:
+  - **`api`**: Contains route handlers to manage API requests.
+  - **`user`**: Contains the structure for user-related views (e.g., `/user/[slug]`).
+- **`components`**:
+  - **`ui`**: Contains UI elements.
+  - **`family`**: Contains components related to the landing page where family stats and comparisons are displayed.
+  - **`user`**: Contains components related to the user view (e.g., `/user/[slug]`).
+- **`lib`**:
+  - **`definitions`**: TypeScript definitions.
+  - **`utils`**: Utility functions.
+  - **`gsap`**: GSAP configuration.
+- **`public`**: Contains static assets.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How to Run
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To run the project locally, follow these steps:
 
-## Deploy on Vercel
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/floflor/eightsleep-flo.git
+   cd eightsleep-flo
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. **Open your browser and navigate to http://localhost:3000 to see the application running.**
+  
+
+
+
+

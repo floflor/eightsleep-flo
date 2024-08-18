@@ -38,8 +38,7 @@ export const calculateAverageRespiratoryRate = (
 
 export const calculateSleepStagePercentages = (stages: SleepStage[]) => {
   const totalDuration = stages.reduce((sum, stage) => sum + stage.duration, 0);
-  console.log(totalDuration);
-  
+
   const stageDurations: Record<"awake" | "light" | "deep" | "out", number> =
     stages.reduce(
       (result, stage) => {
@@ -65,7 +64,6 @@ export const calculateSleepStagePercentages = (stages: SleepStage[]) => {
 
   return percentages;
 };
-
 
 export const calculateTimeInBed = (stages: SleepStage[]): number => {
   const activeStages = ["awake", "light", "deep"];

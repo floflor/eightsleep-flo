@@ -64,7 +64,7 @@ export default function UserAreaChart({
       boundaryGap: false,
       data: hours,
       axisLabel: {
-        formatter: (value: number) => `${value}:00`, // Formato 'HH:00'
+        formatter: (value: number) => `${value}:00`, 
       },
     },
     yAxis: {

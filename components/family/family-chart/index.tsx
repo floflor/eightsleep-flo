@@ -9,7 +9,6 @@ export default function FamilyChart({
   type,
 }: {
   data: UserSleepStats[];
-  //TODO: SET ENUM
   type: "scores" | "sleep_stages" | "total_sleep";
 }) {
   const users = useMemo(() => data.map((user) => user.name), [data]);
@@ -96,14 +95,14 @@ export default function FamilyChart({
       axisLine: {
         show: true,
         lineStyle: {
-          color: "#000000", // Color de la línea del eje Y
+          color: "#000000", 
         },
       },
       splitLine: {
-        show: true, // Muestra las líneas guía internas (de la cuadrícula)
+        show: true, 
         lineStyle: {
-          color: "#CDCED7", // Color de las líneas guía internas
-          width: 1, // Ancho de las líneas guía internas
+          color: "#CDCED7",
+          width: 1, 
         },
       },
     },
@@ -114,7 +113,7 @@ export default function FamilyChart({
       axisLine: {
         show: true,
         lineStyle: {
-          color: "#000000", // Color de la línea del eje Y
+          color: "#000000",
         },
       },
     },

@@ -1,4 +1,3 @@
-// date-utils.test.ts
 import {
   convertDateToHour,
   formatHoursToHM,
